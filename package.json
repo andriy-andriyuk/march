@@ -1,0 +1,29 @@
+{
+  "name": "march-guide",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview:static": "npx serve .output/public",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "gcp-build": "nuxt build",
+    "start": "node .output/server/index.mjs"
+  },
+  "dependencies": {
+    "@iconify-json/lucide": "^1.2.118",
+    "@nuxt/content": "^3.15.2",
+    "@nuxt/ui": "^3.3.0",
+    "better-sqlite3": "^12.11.1",
+    "nuxt": "^4.0.0",
+    "vue": "^3.5.0",
+    "vue-router": "^4.5.0"
+  },
+  "devDependencies": {
+    "@emnapi/runtime": "^1.11.3",
+    "playwright-core": "1.57",
+    "wrangler": "^4.124.0"
+  }
+}
