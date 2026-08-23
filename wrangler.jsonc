@@ -2,6 +2,11 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "march",
   "compatibility_date": "2026-08-01",
+  // Збірка перед деплоєм: у Workers Builds команда деплою (`npx wrangler deploy`)
+  // виконується без окремого build-кроку, тож .output/public інакше не існує
+  "build": {
+    "command": "npm run generate"
+  },
   "assets": {
     "directory": "./.output/public",
     "not_found_handling": "404-page"

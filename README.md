@@ -101,6 +101,8 @@ app/utils/guide.ts             частини посібника
 
 ## Деплой
 
-- **Cloudflare Pages** — `wrangler.jsonc`, каталог `.output/public`
+- **Cloudflare Workers** — `wrangler.jsonc`; там же `build.command`, тому
+  `npx wrangler deploy` сам робить `npm run generate` перед завантаженням
+  `.output/public` (у Workers Builds окремого build-кроку може не бути)
 - **GitHub Pages** — ручний workflow `.github/workflows/deploy-pages.yml`
   (`NUXT_APP_BASE_URL=/march/`)
