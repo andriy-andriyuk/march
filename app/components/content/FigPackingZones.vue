@@ -1,5 +1,6 @@
 <script setup lang="ts">
-withDefaults(defineProps<{ caption?: string }>(), {
+withDefaults(defineProps<{ title?: string; caption?: string }>(), {
+  title: 'Де тампонують рану',
   caption: 'Тампонують те, що не перетиснути турнікетом: шия, пахва, пах, сідниця. У груди, живіт і череп бинт не запихають ніколи.'
 })
 
@@ -19,7 +20,7 @@ const bad = [
 </script>
 
 <template>
-  <FigFrame :caption="caption">
+  <FigFrame :title="title" :caption="caption">
     <svg viewBox="0 0 660 460" role="img" aria-label="Ділянки тіла, де тампонують рану, і де цього робити не можна">
       <g transform="translate(120 20)">
         <FigBody />
@@ -53,10 +54,10 @@ const bad = [
         <text x="424" y="250" font-size="12.5" class="text-muted fill-current">всередині — лише нашкодить</text>
 
         <rect x="396" y="280" width="248" height="106" rx="12" class="text-muted" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-opacity="0.25" />
-        <text x="414" y="306" font-size="12" font-weight="600" class="text-dimmed fill-current">ПАМ’ЯТАЙ</text>
-        <text x="414" y="330" font-size="12.5" class="text-toned fill-current">На кінцівці турнікет завжди</text>
-        <text x="414" y="348" font-size="12.5" class="text-toned fill-current">швидший. Тампонування — для</text>
-        <text x="414" y="366" font-size="12.5" class="text-toned fill-current">місць, де турнікет не застосуєш.</text>
+        <text x="414" y="306" font-size="12" font-weight="600" class="text-muted fill-current">ПАМ’ЯТАЙ</text>
+        <text x="414" y="330" font-size="12.5" class="text-default fill-current">На кінцівці турнікет завжди</text>
+        <text x="414" y="348" font-size="12.5" class="text-default fill-current">швидший. Тампонування — для</text>
+        <text x="414" y="366" font-size="12.5" class="text-default fill-current">місць, де турнікет не застосуєш.</text>
       </g>
     </svg>
   </FigFrame>

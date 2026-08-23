@@ -1,20 +1,26 @@
 <script setup lang="ts">
-defineProps<{ caption?: string }>()
+defineProps<{ title?: string; caption?: string }>()
 </script>
 
 <template>
-  <figure>
-    <!-- На телефоні широку схему не стискаємо до нечитабельного розміру,
-         а даємо гортати вбік: підписи всередині SVG лишаються розбірливими -->
-    <div class="-mx-4 overflow-x-auto px-4 sm:mx-0 sm:px-0">
-      <div class="min-w-[40rem] rounded-xl border border-default bg-elevated/30 p-4 sm:min-w-0 sm:p-6">
+  <figure class="my-8 overflow-hidden rounded-2xl border border-default bg-elevated/70">
+    <div v-if="title" class="flex items-baseline justify-between gap-3 border-b border-default px-5 py-4">
+      <p class="m-0 text-sm font-semibold text-highlighted">{{ title }}</p>
+      <!-- На телефоні широку схему не стискаємо до нечитабельного розміру, а даємо гортати вбік -->
+      <span class="flex shrink-0 items-center gap-1.5 text-xs text-muted sm:hidden">
+        <UIcon name="i-lucide-move-horizontal" class="size-3.5" />
+        гортайте вбік
+      </span>
+    </div>
+
+    <div class="overflow-x-auto">
+      <div class="min-w-[40rem] px-5 py-5 sm:min-w-0">
         <slot />
       </div>
     </div>
-    <p class="mt-2 flex items-center gap-1.5 text-xs text-dimmed sm:hidden">
-      <UIcon name="i-lucide-move-horizontal" class="size-3.5" />
-      Гортайте схему вбік
-    </p>
-    <figcaption v-if="caption">{{ caption }}</figcaption>
+
+    <figcaption v-if="caption" class="guide-note border-t border-default px-5 py-4 text-default">
+      {{ caption }}
+    </figcaption>
   </figure>
 </template>

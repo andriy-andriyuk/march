@@ -1,5 +1,6 @@
 <script setup lang="ts">
-withDefaults(defineProps<{ caption?: string }>(), {
+withDefaults(defineProps<{ title?: string; caption?: string }>(), {
+  title: 'Послідовність MARCH',
   caption: 'Порядок MARCH: спочатку те, що вбиває за хвилини, далі — те, що вбиває за години.'
 })
 
@@ -13,7 +14,7 @@ const rows = [
 </script>
 
 <template>
-  <FigFrame :caption="caption">
+  <FigFrame :title="title" :caption="caption">
     <svg viewBox="0 0 660 400" role="img" aria-label="Схема послідовності MARCH">
       <g v-for="(row, i) in rows" :key="row.letter" :transform="`translate(0 ${i * 70})`">
         <rect
@@ -30,7 +31,7 @@ const rows = [
           {{ row.title }}
         </text>
         <text x="70" y="55" font-size="13" class="text-muted fill-current">{{ row.sub }}</text>
-        <text x="640" y="45" text-anchor="end" font-size="12" class="text-dimmed fill-current">
+        <text x="640" y="45" text-anchor="end" font-size="12" class="text-muted fill-current">
           {{ row.time }}
         </text>
         <path

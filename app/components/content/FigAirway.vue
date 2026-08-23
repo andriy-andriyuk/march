@@ -1,11 +1,12 @@
 <script setup lang="ts">
-withDefaults(defineProps<{ caption?: string }>(), {
+withDefaults(defineProps<{ title?: string; caption?: string }>(), {
+  title: 'Відкриття дихальних шляхів',
   caption: 'У непритомного на спині язик западає й перекриває дихання. Закидання голови з підняттям підборіддя або висування щелепи знову відкриває шлях повітрю.'
 })
 </script>
 
 <template>
-  <FigFrame :caption="caption">
+  <FigFrame :title="title" :caption="caption">
     <svg viewBox="0 0 660 320" role="img" aria-label="Прийоми відновлення прохідності дихальних шляхів">
       <!-- 1. проблема -->
       <FigPanel :x="8" :y="8" :w="204" :h="304" :n="1" :lines="['Голова опущена, язик', 'перекрив прохід: хрип,', 'булькання або тиша']" :text-y="228">

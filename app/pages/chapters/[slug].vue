@@ -56,26 +56,23 @@ useSeoMeta({
               {{ chapter.duration }}
             </UBadge>
           </div>
-          <h1 class="text-4xl font-semibold tracking-tight text-highlighted">{{ chapter.title }}</h1>
+          <h1 class="text-4xl font-semibold tracking-tight">{{ chapter.title }}</h1>
           <p class="mt-4 text-lg leading-8 text-muted">{{ chapter.description }}</p>
         </div>
 
-        <UCard class="mb-10 bg-elevated/50">
-          <h2 class="mb-3 flex items-center gap-2 text-lg font-semibold text-highlighted">
-            <UIcon name="i-lucide-target" class="size-5 text-primary" />
-            Що ви дізнаєтесь
-          </h2>
-          <ul class="space-y-2">
+        <div class="my-7 rounded-2xl border border-primary/30 bg-primary/5 p-5">
+          <p class="text-sm font-semibold text-primary">Що ви дізнаєтесь</p>
+          <ul class="mt-3 space-y-2">
             <li
               v-for="objective in chapter.objectives"
               :key="objective"
-              class="guide-note flex items-start gap-2 text-toned"
+              class="flex items-start gap-2 text-[17px] leading-7 sm:text-base"
             >
-              <UIcon name="i-lucide-check" class="mt-0.5 size-4 shrink-0 text-primary" />
+              <UIcon name="i-lucide-check" class="mt-1.5 size-4 shrink-0 text-primary" />
               <span>{{ objective }}</span>
             </li>
           </ul>
-        </UCard>
+        </div>
 
         <article class="prose-guide max-w-3xl">
           <ContentRenderer :value="chapter" />

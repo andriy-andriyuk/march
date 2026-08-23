@@ -1,5 +1,6 @@
 <script setup lang="ts">
-withDefaults(defineProps<{ caption?: string }>(), {
+withDefaults(defineProps<{ title?: string; caption?: string }>(), {
+  title: 'Турнікет крок за кроком',
   caption: 'Накладання турнікета крок за кроком. Уся послідовність має вкладатися приблизно в 20–30 секунд.'
 })
 
@@ -14,7 +15,7 @@ const steps = [
 </script>
 
 <template>
-  <FigFrame :caption="caption">
+  <FigFrame :title="title" :caption="caption">
     <svg viewBox="0 0 660 540" role="img" aria-label="Шість кроків накладання турнікета">
       <!-- рамки, номери, підписи -->
       <g v-for="s in steps" :key="s.n" :transform="`translate(${s.x} ${s.y})`">
@@ -77,7 +78,7 @@ const steps = [
           <path d="M126 50 h16 a10 10 0 0 1 10 10 v12 a10 10 0 0 1 -10 10 h-16" stroke="currentColor" stroke-width="4.5" fill="none" stroke-linecap="round" />
           <path d="M150 44 V38 h14" stroke="currentColor" stroke-width="1.5" fill="none" stroke-opacity="0.6" />
         </g>
-        <text x="150" y="34" font-size="11.5" class="text-dimmed fill-current">кліпса</text>
+        <text x="150" y="34" font-size="11.5" class="text-muted fill-current">кліпса</text>
       </g>
 
       <!-- 5. час -->
@@ -107,7 +108,7 @@ const steps = [
           <path d="M120 58 h14 l6 -12 l8 24 l6 -12 h16" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" />
           <path d="M118 40 L172 76" class="text-primary" stroke="currentColor" stroke-width="3" stroke-linecap="round" />
         </g>
-        <text x="116" y="36" font-size="11.5" class="text-dimmed fill-current">пульс</text>
+        <text x="116" y="36" font-size="11.5" class="text-muted fill-current">пульс</text>
       </g>
     </svg>
   </FigFrame>

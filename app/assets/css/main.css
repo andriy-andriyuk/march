@@ -135,19 +135,7 @@ html {
     vertical-align: top;
   }
 
-  /* Ілюстрації */
-  .prose-guide figure {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-  }
-
-  .prose-guide figcaption {
-    margin-top: 0.75rem;
-    font-size: 0.875rem;
-    line-height: 1.6;
-    color: var(--ui-text-muted);
-  }
-
+  /* Ілюстрації: рамку, заголовок і підпис задає FigFrame, тут — лише полотно */
   .prose-guide figure svg {
     display: block;
     width: 100%;
@@ -165,7 +153,6 @@ html {
       line-height: 1.75;
     }
 
-    .prose-guide figcaption,
     .guide-note,
     .prose-guide .guide-note,
     .prose-guide .guide-note p {

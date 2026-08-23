@@ -1,5 +1,6 @@
 <script setup lang="ts">
-withDefaults(defineProps<{ caption?: string }>(), {
+withDefaults(defineProps<{ title?: string; caption?: string }>(), {
+  title: 'Зони надання допомоги',
   caption: 'Обсяг допомоги залежить від того, наскільки безпечно там, де ви зараз.'
 })
 
@@ -32,7 +33,7 @@ const zones = [
 </script>
 
 <template>
-  <FigFrame :caption="caption">
+  <FigFrame :title="title" :caption="caption">
     <svg viewBox="0 0 660 300" role="img" aria-label="Три зони надання допомоги">
       <g v-for="zone in zones" :key="zone.name" :transform="`translate(${zone.x} 0)`">
         <rect
@@ -44,17 +45,17 @@ const zones = [
         <text x="50" y="40" font-size="15" font-weight="600" class="text-highlighted fill-current">
           {{ zone.name }}
         </text>
-        <text x="50" y="57" font-size="11" class="text-dimmed fill-current">{{ zone.en }}</text>
+        <text x="50" y="57" font-size="11" class="text-muted fill-current">{{ zone.en }}</text>
         <text
           v-for="(line, i) in zone.lines" :key="line"
           x="20" :y="94 + i * 18" font-size="12.5" class="text-muted fill-current"
         >{{ line }}</text>
-        <text x="20" y="176" font-size="11" font-weight="600" class="text-dimmed fill-current">
+        <text x="20" y="176" font-size="11" font-weight="600" class="text-muted fill-current">
           ЩО РОБИМО
         </text>
         <g v-for="(item, i) in zone.doing" :key="item">
           <circle :cx="26" :cy="200 + i * 26" r="3.5" :class="zone.tone" fill="currentColor" />
-          <text x="40" :y="204 + i * 26" font-size="12.5" class="text-toned fill-current">{{ item }}</text>
+          <text x="40" :y="204 + i * 26" font-size="12.5" class="text-default fill-current">{{ item }}</text>
         </g>
       </g>
     </svg>

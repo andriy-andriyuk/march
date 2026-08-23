@@ -1,5 +1,6 @@
 <script setup lang="ts">
-withDefaults(defineProps<{ caption?: string }>(), {
+withDefaults(defineProps<{ title?: string; caption?: string }>(), {
+  title: 'Стабільне положення на боці',
   caption: 'Стабільне положення на боці: непритомний, який дихає сам, не задихнеться від язика й не захлинеться кров’ю чи блювотою.'
 })
 
@@ -16,7 +17,7 @@ const notes = [
 </script>
 
 <template>
-  <FigFrame :caption="caption">
+  <FigFrame :title="title" :caption="caption">
     <svg viewBox="0 0 660 320" role="img" aria-label="Стабільне положення на боці">
       <!-- земля -->
       <path d="M40 276 H360" class="text-muted" stroke="currentColor" stroke-width="2" stroke-dasharray="6 6" stroke-opacity="0.5" />
@@ -76,7 +77,7 @@ const notes = [
           v-if="i % 2 === 0" :x="386" :y="note.y" text-anchor="middle" font-size="11.5" font-weight="700"
           class="text-primary fill-current"
         >{{ note.n }}</text>
-        <text :x="note.x" :y="note.y" font-size="13" class="text-toned fill-current">{{ note.text }}</text>
+        <text :x="note.x" :y="note.y" font-size="13" class="text-default fill-current">{{ note.text }}</text>
       </g>
     </svg>
   </FigFrame>

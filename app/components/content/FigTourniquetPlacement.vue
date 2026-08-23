@@ -1,11 +1,12 @@
 <script setup lang="ts">
-withDefaults(defineProps<{ caption?: string }>(), {
+withDefaults(defineProps<{ title?: string; caption?: string }>(), {
+  title: 'Місце накладання турнікета',
   caption: 'Куди накладати: під вогнем — максимально високо на кінцівці; у відносній безпеці — на 5–7 см вище рани, але ніколи не на суглоб.'
 })
 </script>
 
 <template>
-  <FigFrame :caption="caption">
+  <FigFrame :title="title" :caption="caption">
     <svg viewBox="0 0 660 400" role="img" aria-label="Місця накладання турнікета на руку та ногу">
       <!-- Рука -->
       <g transform="translate(8 0)">
@@ -17,7 +18,7 @@ withDefaults(defineProps<{ caption?: string }>(), {
           <rect x="118" y="56" width="58" height="290" rx="29" fill="currentColor" fill-opacity="0.35" />
           <circle cx="147" cy="200" r="30" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="5 5" stroke-opacity="0.7" />
         </g>
-        <text x="196" y="196" font-size="12" class="text-dimmed fill-current">лікоть</text>
+        <text x="196" y="196" font-size="12" class="text-muted fill-current">лікоть</text>
 
         <!-- рана -->
         <g class="text-primary">
@@ -60,7 +61,7 @@ withDefaults(defineProps<{ caption?: string }>(), {
           <rect x="112" y="56" width="74" height="290" rx="36" fill="currentColor" fill-opacity="0.35" />
           <circle cx="149" cy="214" r="32" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="5 5" stroke-opacity="0.7" />
         </g>
-        <text x="196" y="218" font-size="12" class="text-dimmed fill-current">коліно</text>
+        <text x="196" y="218" font-size="12" class="text-muted fill-current">коліно</text>
 
         <g class="text-primary">
           <path d="M124 288 q12 -12 24 0 q12 12 26 -2" stroke="currentColor" stroke-width="6" fill="none" stroke-linecap="round" />

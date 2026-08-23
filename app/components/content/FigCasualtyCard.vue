@@ -1,5 +1,6 @@
 <script setup lang="ts">
-withDefaults(defineProps<{ caption?: string }>(), {
+withDefaults(defineProps<{ title?: string; caption?: string }>(), {
+  title: 'Картка пораненого і MIST',
   caption: 'Картка пораненого: усе, що ви зробили, коротко й з часом. Її кріплять на видному місці — до нагрудної кишені або поверх пов’язки.'
 })
 
@@ -14,7 +15,7 @@ const rows = [
 </script>
 
 <template>
-  <FigFrame :caption="caption">
+  <FigFrame :title="title" :caption="caption">
     <svg viewBox="0 0 660 400" role="img" aria-label="Картка пораненого та схема передачі MIST">
       <!-- картка -->
       <g transform="translate(8 8)">
@@ -23,10 +24,10 @@ const rows = [
         <text x="20" y="30" font-size="15" font-weight="700" class="text-inverted fill-current">КАРТКА ПОРАНЕНОГО</text>
 
         <g v-for="(r, i) in rows" :key="r.label">
-          <text :x="20" :y="82 + i * 48" font-size="11.5" font-weight="600" class="text-dimmed fill-current">
+          <text :x="20" :y="82 + i * 48" font-size="11.5" font-weight="600" class="text-muted fill-current">
             {{ r.label.toUpperCase() }}
           </text>
-          <text :x="20" :y="102 + i * 48" font-size="12.5" class="text-toned fill-current">{{ r.value }}</text>
+          <text :x="20" :y="102 + i * 48" font-size="12.5" class="text-default fill-current">{{ r.value }}</text>
           <path
             :d="`M20 ${112 + i * 48} H360`" class="text-muted"
             stroke="currentColor" stroke-width="1" stroke-opacity="0.3"
@@ -38,7 +39,7 @@ const rows = [
       <g transform="translate(408 8)">
         <rect x="0" y="0" width="244" height="384" rx="14" class="text-muted" fill="currentColor" fill-opacity="0.07" stroke="currentColor" stroke-opacity="0.3" />
         <text x="20" y="36" font-size="15" font-weight="600" class="text-highlighted fill-current">Передача за MIST</text>
-        <text x="20" y="58" font-size="12" class="text-dimmed fill-current">30 секунд, поки кладете ноші</text>
+        <text x="20" y="58" font-size="12" class="text-muted fill-current">30 секунд, поки кладете ноші</text>
 
         <g v-for="(m, i) in [
           { l: 'M', t: 'Mechanism', d: 'що поранило' },

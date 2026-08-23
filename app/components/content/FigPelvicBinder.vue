@@ -1,11 +1,12 @@
 <script setup lang="ts">
-withDefaults(defineProps<{ caption?: string }>(), {
+withDefaults(defineProps<{ title?: string; caption?: string }>(), {
+  title: 'Тазовий бандаж',
   caption: 'Тазовий бандаж стискає таз на рівні великих вертлюгів — це найширша частина стегон, а не талія і не живіт.'
 })
 </script>
 
 <template>
-  <FigFrame :caption="caption">
+  <FigFrame :title="title" :caption="caption">
     <svg viewBox="0 0 660 360" role="img" aria-label="Накладання тазового бандажа">
       <g transform="translate(104 20)">
         <!-- таз і ноги -->
@@ -64,9 +65,9 @@ withDefaults(defineProps<{ caption?: string }>(), {
         <text x="360" y="254" font-size="12.5" class="text-muted fill-current">4. Зв’язати коліна й стопи разом.</text>
 
         <rect x="352" y="278" width="290" height="66" rx="10" class="text-primary" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-opacity="0.3" />
-        <text x="368" y="302" font-size="12.5" class="text-toned fill-current">Таз не «перевіряють» розхитуванням:</text>
-        <text x="368" y="322" font-size="12.5" class="text-toned fill-current">так лише зривають згустки й посилюють</text>
-        <text x="368" y="338" font-size="12.5" class="text-toned fill-current">внутрішню кровотечу.</text>
+        <text x="368" y="302" font-size="12.5" class="text-default fill-current">Таз не «перевіряють» розхитуванням:</text>
+        <text x="368" y="322" font-size="12.5" class="text-default fill-current">так лише зривають згустки й посилюють</text>
+        <text x="368" y="338" font-size="12.5" class="text-default fill-current">внутрішню кровотечу.</text>
       </g>
     </svg>
   </FigFrame>

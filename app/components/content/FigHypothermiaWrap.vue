@@ -1,5 +1,6 @@
 <script setup lang="ts">
-withDefaults(defineProps<{ caption?: string }>(), {
+withDefaults(defineProps<{ title?: string; caption?: string }>(), {
+  title: 'Утеплення пораненого',
   caption: 'Порядок утеплення: спершу прибрати мокре й відрізати пораненого від землі, і лише потім укутувати.'
 })
 
@@ -13,7 +14,7 @@ const layers = [
 </script>
 
 <template>
-  <FigFrame :caption="caption">
+  <FigFrame :title="title" :caption="caption">
     <svg viewBox="0 0 660 360" role="img" aria-label="Шари утеплення пораненого">
       <!-- земля -->
       <path d="M20 306 H332" class="text-muted" stroke="currentColor" stroke-width="2" stroke-dasharray="6 6" stroke-opacity="0.5" />
@@ -76,7 +77,7 @@ const layers = [
             :x="364" :y="88 + i * 46" text-anchor="middle" font-size="12" font-weight="700"
             class="text-primary fill-current"
           >{{ l.n }}</text>
-          <text :x="386" :y="89 + i * 46" font-size="12.5" class="text-toned fill-current">{{ l.text }}</text>
+          <text :x="386" :y="89 + i * 46" font-size="12.5" class="text-default fill-current">{{ l.text }}</text>
         </g>
         <text x="352" y="326" font-size="12" class="text-muted fill-current">Навіть +15 °C і вітер — це вже</text>
         <text x="352" y="344" font-size="12" class="text-muted fill-current">переохолодження для того, хто втратив кров.</text>

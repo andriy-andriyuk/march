@@ -1,11 +1,12 @@
 <script setup lang="ts">
-withDefaults(defineProps<{ caption?: string }>(), {
+withDefaults(defineProps<{ title?: string; caption?: string }>(), {
+  title: 'Назофарингеальний повітропровід',
   caption: 'Назофарингеальний повітропровід — трубка, що тримає прохід відкритим, поки ви зайняті іншим. Її переносять навіть напівпритомні.'
 })
 </script>
 
 <template>
-  <FigFrame :caption="caption">
+  <FigFrame :title="title" :caption="caption">
     <svg viewBox="0 0 660 300" role="img" aria-label="Введення назофарингеального повітропроводу">
       <!-- 1. розмір -->
       <FigPanel :x="8" :y="8" :w="204" :h="284" :n="1" :lines="['Довжина — від ніздрі', 'до мочки вуха, товщина —', 'приблизно як мізинець']" :text-y="212">
@@ -38,7 +39,7 @@ withDefaults(defineProps<{ caption?: string }>(), {
           <circle cx="96" cy="86" r="44" class="text-muted" fill="currentColor" fill-opacity="0.35" />
           <path d="M60 92 q28 4 36 26 q6 16 2 30" class="text-primary" stroke="currentColor" stroke-width="8" fill="none" stroke-linecap="round" opacity="0.85" />
           <circle cx="56" cy="92" r="9" class="text-primary" fill="none" stroke="currentColor" stroke-width="4" />
-          <text x="14" y="76" font-size="11" class="text-dimmed fill-current">фланець</text>
+          <text x="14" y="76" font-size="11" class="text-muted fill-current">фланець</text>
           <g class="text-emerald-500">
             <path d="M120 150 q18 6 30 0" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round" />
             <circle cx="160" cy="148" r="14" fill="currentColor" fill-opacity="0.15" />

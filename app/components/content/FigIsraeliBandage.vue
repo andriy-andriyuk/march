@@ -1,5 +1,6 @@
 <script setup lang="ts">
-withDefaults(defineProps<{ caption?: string }>(), {
+withDefaults(defineProps<{ title?: string; caption?: string }>(), {
+  title: 'Ізраїльський бандаж крок за кроком',
   caption: 'Ізраїльський бандаж: подушечка на рану, планка з прорізом задає тиск, зміна напрямку обмотування цей тиск утримує.'
 })
 
@@ -14,7 +15,7 @@ const steps = [
 </script>
 
 <template>
-  <FigFrame :caption="caption">
+  <FigFrame :title="title" :caption="caption">
     <svg viewBox="0 0 660 540" role="img" aria-label="Шість кроків накладання ізраїльського бандажа">
       <g v-for="s in steps" :key="s.n" :transform="`translate(${s.x} ${s.y})`">
         <rect
@@ -72,7 +73,7 @@ const steps = [
           <path d="M103 92 V78" />
           <path d="M103 62 q-24 -14 -46 -10" />
         </g>
-        <text x="142" y="60" font-size="11" class="text-dimmed fill-current">планка</text>
+        <text x="142" y="60" font-size="11" class="text-muted fill-current">планка</text>
       </g>
 
       <!-- 4: зміна напрямку -->
@@ -107,7 +108,7 @@ const steps = [
           </g>
         </g>
         <rect x="62" y="60" width="82" height="20" rx="5" class="text-primary" fill="currentColor" fill-opacity="0.85" />
-        <text x="103" y="52" text-anchor="middle" font-size="11" class="text-dimmed fill-current">рівномірно, внатяг</text>
+        <text x="103" y="52" text-anchor="middle" font-size="11" class="text-muted fill-current">рівномірно, внатяг</text>
       </g>
 
       <!-- 6: фіксація й перевірка пальців -->
@@ -125,7 +126,7 @@ const steps = [
           <circle cx="176" cy="80" r="17" fill="currentColor" fill-opacity="0.15" />
           <path d="M168 80 l6 7 l11 -13" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round" />
         </g>
-        <text x="124" y="152" font-size="11" class="text-dimmed fill-current">пальці теплі</text>
+        <text x="124" y="152" font-size="11" class="text-muted fill-current">пальці теплі</text>
       </g>
     </svg>
   </FigFrame>

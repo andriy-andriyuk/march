@@ -93,8 +93,23 @@ app/utils/guide.ts             частини посібника
 | Таблиці | 14px | 15px |
 | Підписи, примітки (`.guide-note`) | 14px / 1.6 | 15px / 1.65 |
 
-Кольори — з токенів теми: `var(--ui-text)` для тексту, `var(--ui-text-highlighted)`
-для `strong`, `var(--ui-text-muted)` для другорядного, маркери списків — `primary-500`.
+Шкала за межами `prose` — та сама, що в `waveio`:
+
+- hero `text-5xl sm:text-6xl lg:text-7xl font-semibold tracking-tight`;
+- заголовок розділу `text-4xl font-semibold tracking-tight`;
+- заголовок секції `text-3xl sm:text-4xl font-semibold tracking-tight`;
+- заголовок картки `text-lg font-semibold`, опис `text-sm leading-6 text-muted`;
+- мітка блоку («Що ви дізнаєтесь», callout) `text-sm font-semibold` у кольорі тону;
+- `font-bold` не використовується — максимум `font-semibold`.
+
+Кольори — лише з токенів теми: `var(--ui-text)` для тексту (заголовки колір не
+задають, а успадковують), `var(--ui-text-highlighted)` для `strong` і дрібних
+міток, `var(--ui-text-muted)` для другорядного, маркери списків — `primary-500`.
+`text-toned` і `text-dimmed` не використовуються.
+
+Ілюстрація має ту саму «оправу», що діаграми waveio: смужка із заголовком згори,
+схема, підпис під роздільником розміром примітки — усе в
+[FigFrame](app/components/FigFrame.vue).
 
 **Важливо:** у frontmatter значення з двокрапкою беруться в лапки —
 інакше YAML не розпарситься й розділ мовчки зникне зі збірки.

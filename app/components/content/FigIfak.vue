@@ -1,5 +1,6 @@
 <script setup lang="ts">
-withDefaults(defineProps<{ caption?: string }>(), {
+withDefaults(defineProps<{ title?: string; caption?: string }>(), {
+  title: 'Склад аптечки',
   caption: 'Мінімальний набір, з яким можна відпрацювати весь MARCH. Усе інше — приємні доповнення, але не заміна цьому.'
 })
 
@@ -17,7 +18,7 @@ const items = [
 </script>
 
 <template>
-  <FigFrame :caption="caption">
+  <FigFrame :title="title" :caption="caption">
     <svg viewBox="0 0 660 420" role="img" aria-label="Склад індивідуальної аптечки">
       <g
         v-for="(item, i) in items" :key="item.title"

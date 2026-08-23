@@ -3,6 +3,9 @@ export default defineAppConfig({
     colors: {
       primary: 'red',
       neutral: 'zinc'
+    },
+    button: {
+      slots: { base: 'font-medium' }
     }
   }
 })

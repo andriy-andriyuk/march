@@ -1,11 +1,12 @@
 <script setup lang="ts">
-withDefaults(defineProps<{ caption?: string }>(), {
+withDefaults(defineProps<{ title?: string; caption?: string }>(), {
+  title: 'Зона огляду грудної клітки',
   caption: 'Небезпечна зона грудної клітки — від ключиць до пупка, разом з боками й спиною. Оглядати треба всю, бо рани зазвичай ходять парами: вхід і вихід.'
 })
 </script>
 
 <template>
-  <FigFrame :caption="caption">
+  <FigFrame :title="title" :caption="caption">
     <svg viewBox="0 0 660 420" role="img" aria-label="Зона огляду грудної клітки спереду та ззаду">
       <FigPanel :x="8" :y="8" :w="204" :h="404" title="Спереду" :text-y="368" :lines="['Від ключиць до пупка,', 'включно з боками']">
         <g transform="translate(2 40) scale(0.72)">
@@ -42,9 +43,9 @@ withDefaults(defineProps<{ caption?: string }>(), {
             <text x="110" y="60" text-anchor="middle" font-size="11" class="text-muted fill-current">вихід</text>
           </g>
 
-          <text x="18" y="240" font-size="12.5" class="text-toned fill-current">Заклеювати треба кожен</text>
-          <text x="18" y="258" font-size="12.5" class="text-toned fill-current">отвір, а не тільки той,</text>
-          <text x="18" y="276" font-size="12.5" class="text-toned fill-current">який побачили першим.</text>
+          <text x="18" y="240" font-size="12.5" class="text-default fill-current">Заклеювати треба кожен</text>
+          <text x="18" y="258" font-size="12.5" class="text-default fill-current">отвір, а не тільки той,</text>
+          <text x="18" y="276" font-size="12.5" class="text-default fill-current">який побачили першим.</text>
 
           <g class="text-dimmed" transform="translate(18 300)">
             <path d="M0 0 h168" stroke="currentColor" stroke-width="1.5" stroke-opacity="0.4" />

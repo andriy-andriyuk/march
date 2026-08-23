@@ -1,11 +1,12 @@
 <script setup lang="ts">
-withDefaults(defineProps<{ caption?: string }>(), {
+withDefaults(defineProps<{ title?: string; caption?: string }>(), {
+  title: 'Оклюзійна наклейка крок за кроком',
   caption: 'Оклюзійна наклейка закриває отвір у грудній клітці, щоб повітря заходило в легені через дихальні шляхи, а не крізь рану.'
 })
 </script>
 
 <template>
-  <FigFrame :caption="caption">
+  <FigFrame :title="title" :caption="caption">
     <svg viewBox="0 0 660 560" role="img" aria-label="Чотири кроки накладання оклюзійної наклейки">
       <FigPanel :x="8" :y="8" :w="314" :h="260" :n="1" :lines="['Витерти шкіру навколо рани', 'насухо — на мокре й слизьке', 'наклейка не тримається']" :text-y="196">
         <g transform="translate(40 40)">

@@ -33,7 +33,7 @@ const letters = [
       <div class="mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-28">
         <div class="mx-auto max-w-3xl text-center">
           <UBadge variant="subtle" size="lg" class="mb-6">Посібник · 14 розділів</UBadge>
-          <h1 class="text-5xl font-semibold tracking-tight text-highlighted sm:text-6xl lg:text-7xl">
+          <h1 class="text-5xl font-semibold tracking-tight sm:text-6xl lg:text-7xl">
             Протокол MARCH
           </h1>
           <p class="mt-6 text-lg leading-8 text-muted">
@@ -57,11 +57,11 @@ const letters = [
       <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
         <UCard v-for="item in letters" :key="item.letter">
           <div class="flex flex-col gap-2">
-            <span class="flex size-11 items-center justify-center rounded-lg bg-primary text-2xl font-bold text-inverted">
+            <span class="flex size-11 items-center justify-center rounded-lg bg-primary text-2xl font-semibold text-inverted">
               {{ item.letter }}
             </span>
-            <p class="text-xs font-medium uppercase tracking-wide text-dimmed">{{ item.word }}</p>
-            <h3 class="text-lg font-semibold text-highlighted">{{ item.title }}</h3>
+            <p class="text-xs font-medium uppercase tracking-wide text-muted">{{ item.word }}</p>
+            <h3 class="text-lg font-semibold">{{ item.title }}</h3>
             <p class="text-sm leading-6 text-muted">{{ item.text }}</p>
           </div>
         </UCard>
@@ -76,8 +76,8 @@ const letters = [
             <UIcon name="i-lucide-triangle-alert" class="size-5" />
           </span>
           <div>
-            <h2 class="text-lg font-semibold text-highlighted">Це навчальний матеріал, а не заміна курсу</h2>
-            <p class="mt-2 leading-7 text-toned">
+            <h2 class="text-lg font-semibold">Це навчальний матеріал, а не заміна курсу</h2>
+            <p class="mt-2 leading-7 text-muted">
               Прочитати про турнікет і накласти турнікет — різні речі. Текст і малюнки допомагають зрозуміти
               логіку дій та повторити її перед виїздом, але навички ставляться руками на очному курсі
               з домедичної допомоги (ТССС / «Домедична допомога в умовах бойових дій») під наглядом інструктора.
@@ -93,7 +93,7 @@ const letters = [
     <section id="contents" class="border-t border-default bg-elevated/40">
       <div class="mx-auto max-w-5xl px-4 py-20 sm:px-6">
         <div class="mb-12 text-center">
-          <h2 class="text-3xl font-semibold tracking-tight text-highlighted sm:text-4xl">Зміст посібника</h2>
+          <h2 class="text-3xl font-semibold tracking-tight sm:text-4xl">Зміст посібника</h2>
           <p class="mt-4 leading-7 text-muted">
             14 розділів у п’яти частинах — від безпеки на місці події до передачі пораненого медикам.
           </p>
@@ -105,7 +105,7 @@ const letters = [
               <span class="text-sm font-medium uppercase tracking-wide text-primary">
                 Частина {{ part.number }}
               </span>
-              <h3 class="text-xl font-semibold tracking-tight text-highlighted">{{ part.title }}</h3>
+              <h3 class="text-xl font-semibold tracking-tight">{{ part.title }}</h3>
             </div>
             <p class="mb-6 text-sm leading-6 text-muted">{{ part.description }}</p>
 
@@ -125,7 +125,7 @@ const letters = [
                       <p class="text-xs font-medium text-muted">
                         Розділ {{ chapter.chapter }} · {{ chapter.duration }}
                       </p>
-                      <h4 class="mt-1 text-lg font-semibold text-highlighted group-hover:text-primary">
+                      <h4 class="mt-1 text-lg font-semibold group-hover:text-primary">
                         {{ chapter.title }}
                       </h4>
                       <p class="mt-2 line-clamp-2 text-sm leading-6 text-muted">{{ chapter.description }}</p>
@@ -141,7 +141,7 @@ const letters = [
 
     <!-- CTA -->
     <section class="mx-auto max-w-3xl px-4 py-20 text-center sm:px-6">
-      <h2 class="text-3xl font-semibold tracking-tight text-highlighted sm:text-4xl">Найкращий час прочитати це — до того, як знадобиться</h2>
+      <h2 class="text-3xl font-semibold tracking-tight sm:text-4xl">Найкращий час прочитати це — до того, як знадобиться</h2>
       <p class="mt-4 leading-7 text-muted">
         Перший розділ займе близько 15 хвилин — і ви вже знатимете, з чого починати і в якому порядку діяти.
       </p>

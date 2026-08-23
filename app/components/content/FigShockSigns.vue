@@ -1,5 +1,6 @@
 <script setup lang="ts">
-withDefaults(defineProps<{ caption?: string }>(), {
+withDefaults(defineProps<{ title?: string; caption?: string }>(), {
+  title: 'Ознаки шоку',
   caption: 'Шок — це не «злякався», а стан, коли крові не вистачає, щоб живити мозок і органи. Ознаки помітні задовго до того, як зникне пульс.'
 })
 
@@ -15,12 +16,12 @@ const signs = [
 </script>
 
 <template>
-  <FigFrame :caption="caption">
+  <FigFrame :title="title" :caption="caption">
     <svg viewBox="0 0 660 400" role="img" aria-label="Ознаки шоку та перевірка пульсу на зап'ясті">
       <FigPanel :x="8" :y="8" :w="314" :h="384" title="Ознаки шоку">
         <g v-for="s in signs" :key="s.text">
           <circle :cx="30" :cy="s.y - 4" r="5" class="text-primary" fill="currentColor" />
-          <text :x="48" :y="s.y" font-size="12.5" class="text-toned fill-current">{{ s.text }}</text>
+          <text :x="48" :y="s.y" font-size="12.5" class="text-default fill-current">{{ s.text }}</text>
         </g>
       </FigPanel>
 
@@ -33,15 +34,15 @@ const signs = [
             <path d="M112 24 V8" stroke="currentColor" stroke-width="12" stroke-linecap="round" />
             <circle cx="104" cy="40" r="16" fill="currentColor" fill-opacity="0.18" />
           </g>
-          <text x="0" y="104" font-size="12.5" class="text-toned fill-current">Двома пальцями (не великим)</text>
-          <text x="0" y="122" font-size="12.5" class="text-toned fill-current">з боку великого пальця,</text>
-          <text x="0" y="140" font-size="12.5" class="text-toned fill-current">трохи вище складки зап’ястя.</text>
+          <text x="0" y="104" font-size="12.5" class="text-default fill-current">Двома пальцями (не великим)</text>
+          <text x="0" y="122" font-size="12.5" class="text-default fill-current">з боку великого пальця,</text>
+          <text x="0" y="140" font-size="12.5" class="text-default fill-current">трохи вище складки зап’ястя.</text>
         </g>
 
         <rect x="18" y="252" width="278" height="112" rx="10" class="text-muted" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-opacity="0.25" />
-        <text x="34" y="278" font-size="12" font-weight="600" class="text-dimmed fill-current">ЯК ЧИТАТИ РЕЗУЛЬТАТ</text>
-        <text x="34" y="302" font-size="12.5" class="text-toned fill-current">Пульс на зап’ясті добре відчутний —</text>
-        <text x="34" y="320" font-size="12.5" class="text-toned fill-current">тиск поки що прийнятний.</text>
+        <text x="34" y="278" font-size="12" font-weight="600" class="text-muted fill-current">ЯК ЧИТАТИ РЕЗУЛЬТАТ</text>
+        <text x="34" y="302" font-size="12.5" class="text-default fill-current">Пульс на зап’ясті добре відчутний —</text>
+        <text x="34" y="320" font-size="12.5" class="text-default fill-current">тиск поки що прийнятний.</text>
         <text x="34" y="342" font-size="12.5" class="text-primary fill-current">Зник, а на шиї є — крові втрачено</text>
         <text x="34" y="358" font-size="12.5" class="text-primary fill-current">багато, це вже важкий шок.</text>
       </FigPanel>

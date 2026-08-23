@@ -1,5 +1,6 @@
 <script setup lang="ts">
-withDefaults(defineProps<{ caption?: string }>(), {
+withDefaults(defineProps<{ title?: string; caption?: string }>(), {
+  title: 'Тампонування крок за кроком',
   caption: 'Тампонування: бинт заштовхують углиб рани до самого джерела крові, а не накладають зверху.'
 })
 
@@ -14,7 +15,7 @@ const steps = [
 </script>
 
 <template>
-  <FigFrame :caption="caption">
+  <FigFrame :title="title" :caption="caption">
     <svg viewBox="0 0 660 540" role="img" aria-label="Шість кроків тампонування рани">
       <g v-for="s in steps" :key="s.n" :transform="`translate(${s.x} ${s.y})`">
         <rect
@@ -70,7 +71,7 @@ const steps = [
           <path d="M90 112 q12 -6 22 0" />
         </g>
         <path d="M122 116 q22 -10 40 -4" class="text-highlighted" stroke="currentColor" stroke-width="8" stroke-opacity="0.6" fill="none" stroke-linecap="round" />
-        <text x="140" y="98" font-size="11" class="text-dimmed fill-current">хвостик</text>
+        <text x="140" y="98" font-size="11" class="text-muted fill-current">хвостик</text>
       </g>
 
       <!-- 4: 3 хвилини тиску -->
@@ -114,8 +115,8 @@ const steps = [
           <circle cx="102" cy="126" r="13" fill="currentColor" fill-opacity="0.6" />
           <path d="M92 152 q9 14 -4 14 q-13 0 -4 -14 z" fill="currentColor" />
         </g>
-        <text x="112" y="52" font-size="11.5" class="text-dimmed fill-current">не знімати —</text>
-        <text x="112" y="68" font-size="11.5" class="text-dimmed fill-current">докласти ще</text>
+        <text x="112" y="52" font-size="11.5" class="text-muted fill-current">не знімати —</text>
+        <text x="112" y="68" font-size="11.5" class="text-muted fill-current">докласти ще</text>
       </g>
     </svg>
   </FigFrame>

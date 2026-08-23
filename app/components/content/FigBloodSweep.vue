@@ -1,5 +1,6 @@
 <script setup lang="ts">
-withDefaults(defineProps<{ caption?: string }>(), {
+withDefaults(defineProps<{ title?: string; caption?: string }>(), {
+  title: 'Швидкий огляд тіла',
   caption: 'Швидкий огляд руками («криваве обмацування»): згори вниз, з обох боків, обов’язково зазираючи під тіло та в пахви й пах.'
 })
 
@@ -16,7 +17,7 @@ const points = [
 </script>
 
 <template>
-  <FigFrame :caption="caption">
+  <FigFrame :title="title" :caption="caption">
     <svg viewBox="0 0 660 460" role="img" aria-label="Порядок швидкого огляду тіла на кровотечу">
       <g transform="translate(150 20)">
         <FigBody />
@@ -40,7 +41,7 @@ const points = [
             :x="414" :y="76 + i * 34" text-anchor="middle" font-size="11.5" font-weight="700"
             class="text-primary fill-current"
           >{{ p.n }}</text>
-          <text :x="434" :y="77 + i * 34" font-size="13" class="text-toned fill-current">{{ p.label }}</text>
+          <text :x="434" :y="77 + i * 34" font-size="13" class="text-default fill-current">{{ p.label }}</text>
         </g>
         <text x="404" y="330" font-size="12" class="text-muted fill-current">
           Руки після кожної ділянки — до очей:

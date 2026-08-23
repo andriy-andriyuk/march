@@ -1,5 +1,6 @@
 <script setup lang="ts">
-withDefaults(defineProps<{ caption?: string }>(), {
+withDefaults(defineProps<{ title?: string; caption?: string }>(), {
+  title: 'Час на турнікеті',
   caption: 'Час на турнікеті — це не формальність: від нього залежить, чи можна буде його послабити і що робитимуть медики далі.'
 })
 
@@ -20,15 +21,15 @@ const zones = [
 </script>
 
 <template>
-  <FigFrame :caption="caption">
+  <FigFrame :title="title" :caption="caption">
     <svg viewBox="0 0 660 276" role="img" aria-label="Часова шкала перебування турнікета на кінцівці">
       <path d="M30 62 H628" class="text-muted" stroke="currentColor" stroke-width="2" stroke-opacity="0.4" />
       <g class="text-muted">
         <path d="M30 54 V70 M234 54 V70 M438 54 V70 M628 54 V70" stroke="currentColor" stroke-width="2" stroke-opacity="0.5" />
       </g>
-      <text x="30" y="42" font-size="12" class="text-dimmed fill-current">0</text>
-      <text x="234" y="42" font-size="12" class="text-dimmed fill-current">2 год</text>
-      <text x="438" y="42" font-size="12" class="text-dimmed fill-current">6 год</text>
+      <text x="30" y="42" font-size="12" class="text-muted fill-current">0</text>
+      <text x="234" y="42" font-size="12" class="text-muted fill-current">2 год</text>
+      <text x="438" y="42" font-size="12" class="text-muted fill-current">6 год</text>
 
       <g v-for="z in zones" :key="z.title">
         <rect :x="z.x" y="80" :width="z.w" height="140" rx="12" :class="z.tone" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-opacity="0.35" />

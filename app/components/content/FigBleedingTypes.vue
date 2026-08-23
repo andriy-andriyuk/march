@@ -1,5 +1,6 @@
 <script setup lang="ts">
-withDefaults(defineProps<{ caption?: string }>(), {
+withDefaults(defineProps<{ title?: string; caption?: string }>(), {
+  title: 'Види кровотечі',
   caption: 'Артеріальна кровотеча вбиває найшвидше — саме її шукають першою і саме на неї витрачають турнікет.'
 })
 
@@ -29,7 +30,7 @@ const cards = [
 </script>
 
 <template>
-  <FigFrame :caption="caption">
+  <FigFrame :title="title" :caption="caption">
     <svg viewBox="0 0 660 330" role="img" aria-label="Три види кровотечі та дії при них">
       <g v-for="card in cards" :key="card.title" :transform="`translate(${card.x} 0)`">
         <rect
@@ -63,10 +64,10 @@ const cards = [
         >{{ line }}</text>
 
         <rect x="16" y="238" width="180" height="66" rx="10" :class="card.tone" fill="currentColor" fill-opacity="0.12" />
-        <text x="28" y="262" font-size="11" font-weight="600" class="text-dimmed fill-current">ЩО РОБИТИ</text>
+        <text x="28" y="262" font-size="11" font-weight="600" class="text-muted fill-current">ЩО РОБИТИ</text>
         <text
           v-for="(line, i) in card.action" :key="line"
-          x="28" :y="282 + i * 17" font-size="12.5" class="text-toned fill-current"
+          x="28" :y="282 + i * 17" font-size="12.5" class="text-default fill-current"
         >{{ line }}</text>
       </g>
     </svg>
