@@ -2,6 +2,7 @@
   "name": "march-guide",
   "private": true,
   "type": "module",
+  "packageManager": "npm@11.16.0",
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
@@ -22,8 +23,6 @@
     "vue-router": "^4.5.0"
   },
   "devDependencies": {
-    "@emnapi/runtime": "^1.11.3",
-    "playwright-core": "1.57",
     "wrangler": "^4.124.0"
   }
 }

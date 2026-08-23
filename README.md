@@ -17,6 +17,30 @@
 - Власна типографіка `.prose-guide` в `app/assets/css/main.css` (розміри й кольори
   перенесені з проєкту `waveio`, без `@tailwindcss/typography`)
 
+## Тулчейн
+
+Node і npm закріплені точними версіями — інакше збірка на Cloudflare падає:
+
+- [.nvmrc](.nvmrc) → **24.18.1** (цей Node несе в собі npm 11.16.0);
+- `packageManager: npm@11.16.0` у [package.json](package.json).
+
+Лок-файл прив'язаний до версії npm, що його згенерувала: npm 10.9.2 і 11.6.1
+відхиляють лок від npm 11.16.0 і навпаки (вони по-різному записують
+optional-peer-залежності wasm-бінарників). Тому оновлювати залежності треба саме
+тим самим npm:
+
+```bash
+npx npm@11.16.0 install
+```
+
+Перевірка перед пушем — чистий `npm ci` у копії лише з відстежуваних файлів:
+
+```bash
+rsync -a --exclude node_modules --exclude .nuxt --exclude .output \
+  --exclude .data --exclude dist --exclude .git ./ /tmp/march-ci/
+cd /tmp/march-ci && npx npm@11.16.0 ci && npm run generate
+```
+
 ## Команди
 
 ```bash
