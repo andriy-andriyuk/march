@@ -19,6 +19,31 @@ export default defineNuxtConfig({
 
   css: ['~/assets/css/main.css'],
 
+  // Іконки збираємо локально. Інакше в темній темі @nuxt/icon тягне місяць
+  // з зовнішнього Iconify API і вставляє свій <style> найпершим у документі,
+  // а той оголошує @layer components раніше за base — і preflight Tailwind
+  // починає перебивати типографіку .prose-guide: заголовки падають до 16px.
+  icon: {
+    mode: 'svg',
+    serverBundle: { collections: ['lucide'] },
+    clientBundle: {
+      // scan не бачить іконок, що передаються змінною, і службових іконок
+      // самого Nuxt UI — тому вони перелічені явно
+      scan: true,
+      icons: [
+        'lucide:arrow-left', 'lucide:arrow-right', 'lucide:arrow-up-right',
+        'lucide:check', 'lucide:chevron-down', 'lucide:chevron-left',
+        'lucide:chevron-right', 'lucide:chevron-up', 'lucide:chevrons-left',
+        'lucide:chevrons-right', 'lucide:clock', 'lucide:cross', 'lucide:ellipsis',
+        'lucide:flag', 'lucide:file', 'lucide:folder', 'lucide:folder-open',
+        'lucide:lightbulb', 'lucide:loader-circle', 'lucide:menu', 'lucide:minus',
+        'lucide:moon', 'lucide:move-horizontal', 'lucide:octagon-alert',
+        'lucide:plus', 'lucide:search', 'lucide:sun', 'lucide:triangle-alert',
+        'lucide:upload', 'lucide:x'
+      ]
+    }
+  },
+
   app: {
     head: {
       htmlAttrs: { lang: 'uk' },
