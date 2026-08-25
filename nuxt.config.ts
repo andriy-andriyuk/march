@@ -44,6 +44,21 @@ export default defineNuxtConfig({
     }
   },
 
+  // Гарнітуру основного тексту тримаємо локально: @nuxt/fonts завантажує
+  // файли на збірці й кладе їх у _fonts, тож у браузері жодного походу
+  // на fonts.googleapis.com. Кирилицю треба просити явно — інакше
+  // український текст мовчки впаде на системний шрифт.
+  fonts: {
+    families: [
+      {
+        name: 'Source Sans 3',
+        provider: 'google',
+        weights: ['400 700'],
+        subsets: ['cyrillic-ext', 'cyrillic', 'latin-ext', 'latin']
+      }
+    ]
+  },
+
   app: {
     head: {
       htmlAttrs: { lang: 'uk' },
@@ -53,7 +68,11 @@ export default defineNuxtConfig({
           name: 'description',
           content:
             'Покроковий посібник з протоколу MARCH простою мовою: турнікет, тампонування рани, ізраїльський бандаж, оклюзійна наклейка, протишокові дії та збереження тепла — з ілюстраціями.'
-        }
+        },
+        // Смуга браузера на iOS має збігатися з ґрунтом сторінки,
+        // інакше зверху лишається темна пляма поверх світлої теми
+        { name: 'theme-color', content: '#f9f9f9', media: '(prefers-color-scheme: light)' },
+        { name: 'theme-color', content: '#1b1b1e', media: '(prefers-color-scheme: dark)' }
       ]
     }
   }

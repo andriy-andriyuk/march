@@ -1,6 +1,41 @@
 @import "tailwindcss";
 @import "@nuxt/ui";
 
+/* Гуманістичний гротеск замість системного SF Pro: більша висота рядкових
+   і відкритіші форми легше читаються довгими абзацами. Системний стек
+   лишається запасним — якщо файл шрифту не приїде, текст не попливе. */
+@theme {
+  --font-sans: "Source Sans 3", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* Комфорт читання з екрана: типові палітри Nuxt UI стоять у крайніх точках
+   шкали — чисто білий ґрунт удень і майже чорний уночі, — і на OLED це дає
+   відблиск удень та гало навколо літер уночі. Стискаємо діапазон з обох боків.
+   Контраст основного тексту: 10.4:1 → 8.4:1 у світлій темі, 14.5:1 → 11.0:1
+   у темній — усе ще далеко вище норми WCAG (4.5:1). */
+:root, :host {
+  --ui-bg: #f9f9f9;
+  --ui-bg-muted: #f4f4f4;
+  --ui-bg-elevated: #f2f2f2;
+  --ui-text: #4a4954;
+  --ui-text-toned: #565661;
+  --ui-text-muted: #686873;
+  --ui-text-highlighted: #252528;
+}
+
+/* Кожен токен зі світлого блоку тут перевизначено обов'язково: обидва блоки
+   лежать поза шарами й перебивають @layer, тож пропущений токен просто
+   протік би у другу тему. */
+.dark {
+  --ui-bg: #1b1b1e;
+  --ui-bg-muted: #262629;
+  --ui-bg-elevated: #262629;
+  --ui-text: #ceced2;
+  --ui-text-toned: #bbbbbf;
+  --ui-text-muted: #a1a1ab;
+  --ui-text-highlighted: #ededee;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -23,8 +58,8 @@ html {
   .prose-guide h2 {
     margin-top: 2em;
     margin-bottom: 0.5em;
-    font-size: 1.5rem;
-    line-height: 1.333;
+    font-size: 1.625rem;
+    line-height: 1.3;
     font-weight: 700;
     letter-spacing: -0.01em;
     scroll-margin-top: 6rem;
@@ -33,14 +68,15 @@ html {
   .prose-guide h3 {
     margin-top: 1.6em;
     margin-bottom: 0.4em;
-    font-size: 1.25rem;
-    line-height: 1.6;
+    font-size: 1.3125rem;
+    line-height: 1.55;
     font-weight: 650;
     scroll-margin-top: 6rem;
   }
 
   .prose-guide p {
     margin-top: 1rem;
+    font-size: 1.125rem;
     line-height: 1.8;
     color: var(--ui-text);
   }
@@ -68,6 +104,7 @@ html {
   .prose-guide ol {
     margin-top: 1rem;
     padding-left: 1.25rem;
+    font-size: 1.125rem;
     line-height: 1.8;
     color: var(--ui-text);
   }
@@ -144,15 +181,9 @@ html {
 }
 
 @layer components {
-  /* На телефоні читають з меншої відстані й частіше на ходу,
-     тому основний текст помітно більший за десктопні 16px. */
+  /* Основний текст уже 18px на всіх ширинах, тож на телефоні лишається
+     підтягнути тільки дрібне: примітки й таблиці. */
   @media (max-width: 640px) {
-    .prose-guide p,
-    .prose-guide li {
-      font-size: 1.0625rem;   /* 17px */
-      line-height: 1.75;
-    }
-
     .guide-note,
     .prose-guide .guide-note,
     .prose-guide .guide-note p {
